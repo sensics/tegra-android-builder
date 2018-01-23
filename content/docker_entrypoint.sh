@@ -58,7 +58,7 @@ echo ""
 args="$@"
 if [ -z "$args" ]; then
   echo "source /opt/oh-my-git/prompt.sh" >> /home/android/.bashrc
-  args="bash"
+  args="bash -l"
 fi
 
 # Execute command as `aosp` user
