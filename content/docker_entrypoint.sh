@@ -47,7 +47,7 @@ mkdir -p /tmp/ccache /opt/tegra-android /opt/tnspec-workspace
 chown android:android /tmp/ccache /opt/tegra-android /opt/tnspec-workspace
 echo "$msg - done"
 
-msg="docker_entrypoint: Adding user to sudoers sans password" && echo msg
+msg="docker_entrypoint: Adding user to sudoers sans password" && echo $msg
 echo "android ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/android
 chmod 0440 /etc/sudoers.d/android
 echo "$msg - done"
