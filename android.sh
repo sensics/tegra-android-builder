@@ -13,6 +13,11 @@ DEFAULT_IMAGE_NAME=$(basename ${SCRIPT_DIR})
 AOSP_IMAGE=${AOSP_IMAGE:-${DEFAULT_IMAGE_NAME}}
 AOSP_ARGS=${AOSP_ARGS:---rm -it}
 
+if [ "$USBACCESS" ]; then
+    echo "USBACCESS was non-empty: launching container as privileged and with /dev/bus/usb access"
+    AOSP_ARGS="${AOSP_ARGS} --privileged -v /dev/bus/usb:/dev/bus/usb"
+fi
+
 AOSP_VOL_AOSP=${AOSP_VOL_AOSP:-$BASE_ANDROID_DIR/$SRC_SUBDIR}
 AOSP_VOL_AOSP=${AOSP_VOL_AOSP%/} # Trim trailing slash if needed
 AOSP_VOL_CCACHE=${AOSP_VOL_CCACHE:-$BASE_ANDROID_DIR/$CCACHE_SUBDIR}
