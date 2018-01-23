@@ -78,7 +78,7 @@ ADD https://commondatastorage.googleapis.com/git-repo-downloads/repo /usr/local/
 RUN chmod 755 /usr/local/bin/*
 
 # Add oh-my-git
-#ADD oh-my-git /opt/oh-my-git
+ADD oh-my-git /opt/oh-my-git
 
 # All builds will be done by user android
 COPY content/gitconfig /root/.gitconfig
