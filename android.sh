@@ -29,11 +29,12 @@ AOSP_MOUNT_POINT=$(echo $VOLUMES | cut -d " " -f 2)
 TNSPEC_MOUNT_POINT=$(echo $VOLUMES | cut -d " " -f 3)
 
 find_config_file() {
-    if [ -f "${LINK_DIR}/${fn}" ]; then
-        echo "${LINK_DIR}/${fn}"
-    elif [ -f "${SCRIPT_DIR}/${fn}" ]; then
-        echo "${SCRIPT_DIR}/${fn}"
-    fi
+	for candidate in "${LINK_DIR}/${1}" "${SCRIPT_DIR}/${1}"; do
+        if [ -f "${candidate}" ]; then
+            echo "${candidate}"
+            return 0
+        fi
+    done
 }
 
 mkdir -p ${AOSP_VOL_AOSP}
