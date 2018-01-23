@@ -1,6 +1,4 @@
-# Provide a default gitconfig to bypass repo init prompts for identity
+# Provide a default gitconfig
 [color]
 	ui = auto
 [user]
-	name = Sensics Android
-	email = support@sensics.com
