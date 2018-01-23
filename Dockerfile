@@ -27,10 +27,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get -q install -y -o Dpkg::Options::="-
     curl \
     gawk \
     git \
-    git-gui \
-    gitk \
     graphviz \
-    kdiff3 \
     lib32z1-dev \
     lib32z-dev \
     lib32stdc++6 \

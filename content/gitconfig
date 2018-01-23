@@ -1,6 +1,4 @@
 # Provide a default gitconfig
 [color]
 	ui = auto
-[merge]
-	tool = kdiff3
 [user]
