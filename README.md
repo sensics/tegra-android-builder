@@ -64,6 +64,10 @@ Otherwise, the arguments to this shell script will be run as the unprivileged `a
 
 Feel free to make symlinks to this file in, e.g., your `/opt/android` directory.
 
+Note that [oh-my-git](https://github.com/arialdomartini/oh-my-git) will be loaded in the shell if
+you do not pass any arguments (that is, you open an interactive session.)
+For best results, you may need to visit that utility's page and follow the font install instructions.
+
 ## Configuration
 
 Can place a file named `gid` in either this directory,
