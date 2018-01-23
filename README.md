@@ -73,3 +73,11 @@ For best results, you may need to visit that utility's page and follow the font 
 Can place a file named `gid` in either this directory,
 or in a directory where you symlink the `android.sh` file to and run from,
 if you'd like to set the group ID (numeric) explicitly to something other than the current user's "main" group.
+
+Other configuration is available, primarily by setting environment variables before running `./android.sh`
+
+## License
+
+Like the kylemanna/docker-aosp repo it is partially derived from, the main part of this repo is MIT-licensed.
+
+The submodule, from <https://github.com/arialdomartini/oh-my-git> is also MIT licensed.
