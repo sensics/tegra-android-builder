@@ -22,7 +22,7 @@ DOCKER_DEPS += Makefile
 # Files copied into the image.
 DOCKER_DEPS += $(shell grep "^COPY" Dockerfile | cut -d " " -f 2)
 # oh-my-git is ADDed as a directory
-#DOCKER_DEPS += $(OHMYGIT_FILES)
+DOCKER_DEPS += $(OHMYGIT_FILES)
 
 # Command to build docker image - in a variable since we have two rules to do this building.
 # (One is a phony rule so always will run, the other uses the stamp file.)
