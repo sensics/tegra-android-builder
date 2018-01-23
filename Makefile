@@ -69,7 +69,8 @@ content/known_hosts: $(KNOWN_HOSTS_FILES)
 
 # static pattern rule to generate the easy known hosts files.
 $(GENERATED_KNOWN_HOSTS): %_hosts:
-	ssh-keyscan $*.com > $@ 2>&1
+	ssh-keyscan -t rsa $*.com > $@ 2>&1
+	ssh-keyscan -t ecdsa $*.com >> $@ 2>&1
 
 # Help text
 .PHONY: help
