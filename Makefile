@@ -30,7 +30,7 @@ DOCKER_BUILD_CMD := docker build -t $(IMAGE_NAME) . && touch docker-stamp
 
 # Default target
 .PHONY: all
-all: docker .gitignore
+all: .gitignore docker
 
 # Build the docker image unconditionally
 .PHONY: docker
