@@ -68,9 +68,9 @@ content/known_hosts: $(KNOWN_HOSTS_FILES)
 	cat $^ > $@
 
 # static pattern rule to generate the easy known hosts files.
-$(GENERATED_KNOWN_HOSTS): %_hosts:
-	ssh-keyscan -t rsa $*.com > $@ 2>&1
-	ssh-keyscan -t ecdsa $*.com >> $@ 2>&1
+# depends on Makefile since that's what can change to make the output change.
+$(GENERATED_KNOWN_HOSTS): content/%_hosts: Makefile
+	ssh-keyscan -t rsa,dsa,ecdsa,ed25519 $*.com > $@ 2>&1
 
 # Help text
 .PHONY: help
