@@ -1,5 +1,5 @@
-github_hosts
-gitlab_hosts
-known_hosts
+content/github_hosts
+content/gitlab_hosts
+content/known_hosts
 docker-stamp
 gid

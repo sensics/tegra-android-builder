@@ -1,14 +1,15 @@
 GENERATED_KNOWN_HOSTS := \
-    github_hosts \
-    gitlab_hosts 
+    content/github_hosts \
+    content/gitlab_hosts
 KNOWN_HOSTS_FILES := \
     $(GENERATED_KNOWN_HOSTS) \
-    nvidia_hosts
+    content/nvidia_hosts
 
 OHMYGIT_FILES := oh-my-git/prompt.sh \
                  oh-my-git/base.sh
 
-GENERATED_FILES := $(GENERATED_KNOWN_HOSTS) known_hosts docker-stamp
+GENERATED_FILES := $(GENERATED_KNOWN_HOSTS) content/known_hosts docker-stamp
+
 # such as files that should never enter the repo
 IGNORED_FILES := gid
 
@@ -63,7 +64,7 @@ run: docker-stamp
 	@echo $(GENERATED_FILES) $(IGNORED_FILES) | tr " " '\n' > $@
 
 # Combine all the known hosts files.
-known_hosts: $(KNOWN_HOSTS_FILES)
+content/known_hosts: $(KNOWN_HOSTS_FILES)
 	cat $^ > $@
 
 # static pattern rule to generate the easy known hosts files.

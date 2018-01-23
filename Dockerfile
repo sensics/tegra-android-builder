@@ -81,9 +81,9 @@ RUN chmod 755 /usr/local/bin/*
 #ADD oh-my-git /opt/oh-my-git
 
 # All builds will be done by user android
-COPY gitconfig /root/.gitconfig
+COPY content/gitconfig /root/.gitconfig
 #COPY id_rsa /root/.ssh/id_rsa
-COPY known_hosts /root/.ssh/known_hosts
+COPY content/known_hosts /root/.ssh/known_hosts
 
 # tnspec-workspace is for persistent NVIDIA Tegra tnspec data files
 ENV TNSPEC_WORKSPACE=/opt/tnspec-workspace
@@ -94,5 +94,5 @@ VOLUME ["/tmp/ccache", "/opt/tegra-android", "/opt/tnspec-workspace"]
 ENV USE_CCACHE 1
 ENV CCACHE_DIR /tmp/ccache
 
-COPY docker_entrypoint.sh /root/docker_entrypoint.sh
+COPY content/docker_entrypoint.sh /root/docker_entrypoint.sh
 ENTRYPOINT ["/root/docker_entrypoint.sh"]
