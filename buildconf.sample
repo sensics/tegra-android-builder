@@ -1,0 +1,9 @@
+
+# A file named buildconf in the directory where the script is linked to,
+# or, failing that, the source directory of the script, will get sourced
+# during android.sh - making it a useful place to do things like this.
+
+echo "Limiting docker container to 4 CPUs"
+
+DOCKER_EXTRA_ARGS="${DOCKER_EXTRA_ARGS} --cpus=4"
+

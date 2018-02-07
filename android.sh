@@ -3,6 +3,7 @@ BASE_ANDROID_DIR=/opt/android
 SRC_SUBDIR=tegra-android
 CCACHE_SUBDIR=ccache
 TNSPEC_SUBDIR=tnspec-workspace
+DOCKER_EXTRA_ARGS=
 
 LINK_DIR=$(cd $(dirname $0) && pwd)
 SCRIPT_DIR=$(cd $(dirname $(readlink -e $0)) && pwd)
@@ -50,6 +51,11 @@ echo "Launching docker image ${AOSP_IMAGE} with mounts: "
 echo -e "[Source Root]  ${AOSP_MOUNT_POINT}:\t${AOSP_VOL_AOSP}"
 echo -e "[ccache]       ${CCACHE_MOUNT_POINT}:\t${AOSP_VOL_CCACHE}"
 echo -e "[tnspec data]  ${TNSPEC_MOUNT_POINT}:\t${TNSPEC_VOL}"
+
+CONFFILE=$(find_config_file buildconf)
+if [ "${CONFFILE}" ]; then
+    source "${CONFFILE}"
+fi
 
 # Set uid and gid to match host current user (and optional custom group)
 # as long as NOT root
@@ -111,6 +117,7 @@ docker run \
     $AOSP_HOST_ID_ARGS \
     $SSH_AUTH_ARGS \
     $AOSP_EXTRA_ARGS \
+    $DOCKER_EXTRA_ARGS \
     $AOSP_GIT_USER_NAME_ARG \
     $AOSP_GIT_USER_EMAIL_ARG \
     -v "$AOSP_VOL_AOSP:$AOSP_MOUNT_POINT" \
