@@ -4,3 +4,4 @@ content/known_hosts
 docker-stamp
 gid
 buildconf
+*_id_*

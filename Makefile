@@ -62,6 +62,7 @@ run: docker-stamp
 .gitignore: Makefile
 	@echo "Regenerating $@: Ignoring $(GENERATED_FILES) $(IGNORED_FILES)"
 	@echo $(GENERATED_FILES) $(IGNORED_FILES) | tr " " '\n' > $@
+	@echo "*_id_*" >> $@ # anything that looks like an ssh key
 
 # Combine all the known hosts files.
 content/known_hosts: $(KNOWN_HOSTS_FILES)
