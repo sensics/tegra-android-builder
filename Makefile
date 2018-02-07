@@ -11,7 +11,7 @@ OHMYGIT_FILES := oh-my-git/prompt.sh \
 GENERATED_FILES := $(GENERATED_KNOWN_HOSTS) content/known_hosts docker-stamp
 
 # such as files that should never enter the repo
-IGNORED_FILES := gid
+IGNORED_FILES := gid buildconf
 
 IMAGE_NAME := $(shell basename `pwd`)
 

@@ -3,3 +3,4 @@ content/gitlab_hosts
 content/known_hosts
 docker-stamp
 gid
+buildconf
